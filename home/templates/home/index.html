@@ -1,0 +1,41 @@
+{%extends 'padrao.html' %}
+{% load static %}
+
+{%block 'titulo' %} Hoteis Aprovados Django {%endblock%}
+
+{%block 'conteudo'%}
+
+<section>
+    <div class="container">
+        <h2 class="jumbotrom">Bem vindo! aqui você encontra os melhores hoteis</h2>
+
+        <div class="card" style="width: 22rem;">
+          <img src="{% static 'img/hotel_dracula.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hotel Dracula</h5>
+            <p class="card-text">Hotel perfeito para quem gosta de filmes de terror e principalmente vampiros.</p>
+            <a href="#" class="btn btn-primary">Reservar</a>
+          </div>
+        </div>
+        <br>
+        <div class="card" style="width: 22rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hotel Princesas</h5>
+            <p class="card-text">Sonho de muitas meninas, esse hotel e recomendado para quem quer passar um final de semana de princesa.</p>
+            <a href="#" class="btn btn-primary">Reservar</a>
+          </div>
+        </div>
+        <br>
+        <div class="card" style="width: 22rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hotel Gormet</h5>
+            <p class="card-text">Hotel para pessoas ricas, um copo de agua neste hotel custa R$13,00.</p>
+            <a href="#" class="btn btn-primary">Reservar</a>
+          </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
