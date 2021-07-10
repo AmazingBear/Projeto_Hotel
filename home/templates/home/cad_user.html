@@ -7,8 +7,60 @@
 
 <section>
     <div class="container">
-        <h2 class="jumbotrom">Cadastro de usuario</h2>
-
+        <br>
+        <h2 class="jumbotrom">Cadastro de cliente</h2>
+        <br>
+        <form class="row g-3 needs-validation" method="post" action="{% url 'insere_cliente' %}">
+          {% csrf_token %}
+          <div class="col-md-4">
+            <label for="nome" class="form-label">Nome completo</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+            <div class="valid-feedback">
+              Correto!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" required>
+            <div class="valid-feedback">
+              Correto!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">@</span>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Por favor use um e-mail válido!
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+            <div class="invalid-feedback">
+              Por favor use um numero de telefone válido!
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="number" class="form-control" id="idade" name="idade" required>
+            <div class="invalid-feedback">
+              Idade inválida!
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Senha</label>
+            <input type="text" class="form-control" id="validationCustom05" name="senha" required>
+            <div class="invalid-feedback">
+              Por favor use uma senha forte!
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+          </div>
+        </form>
     </div>
 </section>
 
