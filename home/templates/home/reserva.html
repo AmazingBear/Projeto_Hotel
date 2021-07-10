@@ -6,9 +6,72 @@
 {%block 'conteudo'%}
 
 <section>
+    <br>
     <div class="container">
         <h2 class="jumbotrom">Reservar neste hotel</h2>
-
+    <br>
+    <form class="row g-3 needs-validation" method="post" action="{% url 'insere_reserva' %}">
+          {% csrf_token %}
+          <div class="col-md-4">
+            <label for="nome" class="form-label">Nome completo</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+            <div class="valid-feedback">
+              Correto!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" required>
+            <div class="valid-feedback">
+              Correto!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+            <div class="invalid-feedback">
+              Por favor use um numero de telefone válido!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="hotel" class="form-label">Nome do Hotel</label>
+            <input type="text" class="form-control" id="hotel" name="hotel" required>
+            <div class="invalid-feedback">
+              Por favor coloque um nome válido!
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="dias_reservados" class="form-label">Dias Reservados</label>
+            <input type="number" class="form-control" id="dias_reservados" name="dias_reservados" required>
+            <div class="invalid-feedback">
+              Minimo de dias reservados é de 1
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="num_quartos" class="form-label">Numero de Quartos</label>
+            <input type="number" class="form-control" id="num_quartos" name="num_quartos" required>
+            <div class="invalid-feedback">
+              Minimo de quartos reservados é de 1
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="num_adultos" class="form-label">Numero de Adultos</label>
+            <input type="number" class="form-control" id="num_adultos" name="num_adultos" required>
+            <div class="invalid-feedback">
+              Numero negativo não pode!
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="num_criancas" class="form-label">Numero de Crianças</label>
+            <input type="number" class="form-control" id="num_criancas" name="num_criancas" required>
+            <div class="invalid-feedback">
+              Minimo de quartos reservados é de 0
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+          </div>
+        </form>
     </div>
 </section>
 

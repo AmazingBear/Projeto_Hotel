@@ -29,11 +29,24 @@ def insere_cliente(request):
         con.commit()
     return render(request, 'home/cad_user.html')
 
-def login_user(request):
-    return render(request, 'home/login_user.html')
-
-
 def reserva(request):
+    return render(request, 'home/reserva.html')
+
+def insere_reserva(request):
+    nome = request.POST.get('nome')
+    cpf = request.POST.get('cpf')
+    telefone = request.POST.get('telefone')
+    hotel = request.POST.get('hotel')
+    dias_reservados = request.POST.get('dias_reservados')
+    num_quartos = request.POST.get('num_quartos')
+    num_adultos = request.POST.get('num_adultos')
+    num_criancas = request.POST.get('num_criancas')
+
+    with con.cursor() as inserir:
+        sql = 'insert into tbreserva(nome, cpf, telefone, hotel, dias_reservados, num_quartos, num_adultos, num_criancas) ' \
+              'values(%s, %s, %s, %s, %s, %s, %s, %s)'
+        inserir.execute(sql, (nome, cpf, telefone, hotel, dias_reservados, num_quartos, num_adultos, num_criancas))
+        con.commit()
     return render(request, 'home/reserva.html')
 
 
@@ -46,3 +59,13 @@ def cliente(request):
         return render(request, 'home/cliente.html', {'clientes':dados})
     else:
         return render(request, 'home/cliente.html')
+
+def hoteis_reservados(request):
+    if __login == True:
+        with con.cursor() as selecionar:
+            sql = 'select * from tbreserva'
+            selecionar.execute(sql)
+            dados = selecionar.fetchall()
+        return render(request, 'home/hoteis_reservados.html', {'hoteis':dados})
+    else:
+        return render(request, 'home/hoteis_reservados.html')

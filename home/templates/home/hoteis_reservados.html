@@ -1,0 +1,48 @@
+{%extends 'padrao.html' %}
+
+
+{%block 'titulo' %} Hoteis Aprovados Django {%endblock%}
+
+{%block 'conteudo'%}
+
+<section>
+    <div class="container">
+        <br>
+        <h2 class="jumbotrom">Reservas Cadastradas</h2>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+                <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Hotel</th>
+              <th scope="col">Dias Reservados</th>
+              <th scope="col">Quartos</th>
+              <th scope="col">Adultos</th>
+              <th scope="col">Crianças</th>
+            </tr>
+          </thead>
+            <tbody>
+        {% for dados in hoteis %}
+         {% csrf_token %}
+            <tr>
+              <th scope="row"><a href=""> <button type="submit" class="btn btn-outline-dark" name="id" > {{dados.id}} </button></a></th>
+              <td>{{dados.nome}}</td>
+              <td>{{dados.cpf}}</td>
+              <td>{{dados.telefone}}</td>
+              <td>{{dados.hotel}}</td>
+              <td>{{dados.dias_reservados}}</td>
+              <td>{{dados.num_quartos}}</td>
+              <td>{{dados.num_adultos}}</td>
+              <td>{{dados.num_criancas}}</td>
+            </tr>
+          {%endfor%}
+          </tbody>
+        </table>
+
+    </div>
+</section>
+
+{%endblock%}
