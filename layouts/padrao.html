@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -22,19 +23,25 @@
           <a class="nav-link active" aria-current="page" href="{%url 'home' %}  ">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{%url 'user' %}">Cadastrar Dados</a>
+        </li>
+        {% if user.is_authenticated and user.username == 'marcos'%}
+        <li class="nav-item">
           <a class="nav-link" href="{%url 'cliente' %}">Clientes</a>
         </li>
-          <li class="nav-item">
-          <a class="nav-link" href="{%url 'user' %}">Cadastrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/login">Login</a>
-        </li>
-
+        {% endif %}
+        {% if user.is_authenticated%}
         <li class="nav-item">
           <a class="nav-link" href="/accounts/logout">Logout</a>
         </li>
-
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/signup">Cadastrar</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

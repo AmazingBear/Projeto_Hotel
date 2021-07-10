@@ -1,0 +1,19 @@
+{% extends 'padrao.html' %}
+
+{%block 'titulo' %} Sair {%endblock%}
+
+{%block 'conteudo'%}
+
+<section>
+    <div class="container">
+        <br>
+        <h2>Sair</h2>
+        <br>
+      <p>Você tem certeza que deseja sair?</p>
+      <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit">Sair</button>
+      </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import conexao
+from django.contrib.auth.models import User
+
+
 
 __login = True
 
